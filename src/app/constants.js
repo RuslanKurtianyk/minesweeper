@@ -15,3 +15,9 @@ export const ONE_CLASS = 'one'
 export const TWO_CLASS = 'two'
 export const THREE_CLASS = 'three'
 export const FOUR_CLASS = 'four'
+
+// Internal html valules
+export const DIV_ELEMENT = 'div'
+export const ID_ATTRIBUTE = 'id'
+export const DATA_ATTRIBUTE = 'data'
+export const CLICK_EVENT = 'click'

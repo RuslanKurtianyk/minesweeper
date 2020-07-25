@@ -1,4 +1,4 @@
-import { BOMB_CLASS, VALID_CLASS } from './constants'
+import { BOMB_CLASS, VALID_CLASS, DIV_ELEMENT, ID_ATTRIBUTE, DATA_ATTRIBUTE, CLICK_EVENT } from './constants'
 import { addFlag, onSquareClick } from './game'
 
 const createBoard = (gameContext) => {
@@ -12,17 +12,17 @@ const createBoard = (gameContext) => {
     const shuffledArray = gameArray.sort(() => Math.random() - 0.5)
 
     for (let i = 0; i < gameContext.width * gameContext.width; i++) {
-        const square = document.createElement('div')
-        square.setAttribute('id', i)
+        const square = document.createElement(DIV_ELEMENT)
+        square.setAttribute(ID_ATTRIBUTE, i)
         square.classList.add(shuffledArray[i])
         gameContext.grid.appendChild(square)
         gameContext.squares.push(square)
 
-        square.addEventListener('click', () => {
+        square.addEventListener(CLICK_EVENT, () => {
             onSquareClick(square, gameContext)
         })
 
-        square.oncontextmenu = (e) => {
+        square.oncontextmenu = e => {
             e.preventDefault()
             addFlag(square, gameContext)
         }
@@ -52,9 +52,7 @@ const createBoard = (gameContext) => {
             }
             if (
                 i > 10 &&
-                gameContext.squares[i - gameContext.width].classList.contains(
-                    BOMB_CLASS
-                )
+                gameContext.squares[i - gameContext.width].classList.contains(BOMB_CLASS)
             ) {
                 total++
             }
@@ -94,13 +92,11 @@ const createBoard = (gameContext) => {
             }
             if (
                 i < 89 &&
-                gameContext.squares[i + gameContext.width].classList.contains(
-                    BOMB_CLASS
-                )
+                gameContext.squares[i + gameContext.width].classList.contains(BOMB_CLASS)
             ) {
                 total++
             }
-            gameContext.squares[i].setAttribute('data', total)
+            gameContext.squares[i].setAttribute(DATA_ATTRIBUTE, total)
         }
     }
 }
