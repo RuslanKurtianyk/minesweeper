@@ -1,4 +1,4 @@
-import { BOMB_CLASS, VALID_CLASS, DIV_ELEMENT, ID_ATTRIBUTE, DATA_ATTRIBUTE, CLICK_EVENT } from './constants'
+import { BOMB_CLASS, VALID_CLASS, DIV_ELEMENT, ID_ATTRIBUTE, DATA_ATTRIBUTE, CLICK_EVENT, GRID_SELECTOR } from './constants'
 import { addFlag, onSquareClick } from './game'
 
 const createBoard = (gameContext) => {
@@ -101,4 +101,8 @@ const createBoard = (gameContext) => {
     }
 }
 
-export { createBoard }
+const cleanBoard = () => {
+    document.querySelector(GRID_SELECTOR).innerHTML = ''
+}
+
+export { createBoard, cleanBoard }

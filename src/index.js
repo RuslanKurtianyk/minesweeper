@@ -1,7 +1,12 @@
-import { createBoard } from './app/board'
-import { gameContext } from './app/model';
+import { createBoard, cleanBoard } from './app/board'
+import { getContext } from './app/model'
 import './styles/index.scss'
 
 document.addEventListener('DOMContentLoaded', () => { 
-    createBoard(gameContext)
+    createBoard(getContext())
 })
+
+document.getElementById('restart-button').addEventListener('click', () => {
+    cleanBoard()
+    createBoard(getContext())
+});
