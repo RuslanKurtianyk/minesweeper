@@ -16,12 +16,16 @@ export const TWO_CLASS = 'two'
 export const THREE_CLASS = 'three'
 export const FOUR_CLASS = 'four'
 
-// Internal html valules
+// html valules
 export const DIV_ELEMENT = 'div'
 export const ID_ATTRIBUTE = 'id'
 export const DATA_ATTRIBUTE = 'data'
 export const CLICK_EVENT = 'click'
 
+// html selectors
+export const GRID_SELECTOR = '.grid'
+export const FLAGS_LEFT_SELECTOR = '#flags-left'
+export const RESULT_SELECTOR = '#result'
 
-//Common constants
+// common constants
 export const EMPTY_STRING = ''

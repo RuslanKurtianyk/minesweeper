@@ -1,18 +1,7 @@
 import { createBoard } from './app/board'
-
+import { gameContext } from './app/model';
 import './styles/index.scss'
 
-document.addEventListener('DOMContentLoaded', () => {
-     const gameContext = {
-        grid: document.querySelector('.grid'),
-        flagsLeft: document.querySelector('#flags-left'),
-        result: document.querySelector('#result'),
-        width: 10,
-        bombAmount: 20,
-        flags: 0,
-        squares: [],
-        isGameOver: false,
-    }
-  
+document.addEventListener('DOMContentLoaded', () => { 
     createBoard(gameContext)
 })
