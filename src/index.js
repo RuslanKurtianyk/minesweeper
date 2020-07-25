@@ -1,10 +1,18 @@
-import { HelloWorld } from './app/HelloWorld'
+import { createBoard } from './app/board'
+
 import './styles/index.scss'
 
-// Create heading node
-const greeting = document.createElement('h1')
-greeting.textContent = HelloWorld()
-
-// Append SVG and heading nodes to the DOM
-const app = document.querySelector('#root')
-app.append(greeting)
+document.addEventListener('DOMContentLoaded', () => {
+     const gameContext = {
+        grid: document.querySelector('.grid'),
+        flagsLeft: document.querySelector('#flags-left'),
+        result: document.querySelector('#result'),
+        width: 10,
+        bombAmount: 20,
+        flags: 0,
+        squares: [],
+        isGameOver: false,
+    }
+  
+    createBoard(gameContext)
+})
