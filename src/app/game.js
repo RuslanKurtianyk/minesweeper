@@ -6,18 +6,19 @@ import {
     BOMB_CLASS,
     FLAG_CLASS,
     CHECKED_CLASS,
-    VALID_CLASS,
     ONE_CLASS,
     TWO_CLASS,
     THREE_CLASS,
     FOUR_CLASS,
+    DATA_ATTRIBUTE,
+    EMPTY_STRING
 } from './constants'
 
 const gameOver = (gameContext) => {
     gameContext.result.innerHTML = GAME_OVER_TEXT
     gameContext.isGameOver = true
 
-    gameContext.squares.forEach((square) => {
+    gameContext.squares.forEach(square => {
         if (square.classList.contains(BOMB_CLASS)) {
             square.innerHTML = ICON_BOMB
             square.classList.remove(BOMB_CLASS)
@@ -37,8 +38,7 @@ const checkSquare = (currentId, gameContext) => {
             onSquareClick(newSquare, gameContext)
         }
         if (currentId > 9 && !isRightEdge) {
-            const newId =
-                gameContext.squares[parseInt(currentId) + 1 - gameContext.width]
+            const newId = gameContext.squares[parseInt(currentId) + 1 - gameContext.width]
                     .id
             const newSquare = document.getElementById(newId)
             onSquareClick(newSquare, gameContext)
@@ -98,7 +98,7 @@ const addFlag = (square, context) => {
             checkForWin(context)
         } else {
             square.classList.remove(FLAG_CLASS)
-            square.innerHTML = ''
+            square.innerHTML = EMPTY_STRING
             context.flags--
             context.flagsLeft.innerHTML = context.bombAmount - context.flags
         }
@@ -133,7 +133,7 @@ const onSquareClick = (square, gameContext) => {
     if (square.classList.contains(BOMB_CLASS)) {
         gameOver(gameContext)
     } else {
-        let total = +square.getAttribute('data')
+        let total = +square.getAttribute(DATA_ATTRIBUTE)
         if (total != 0) {
             square.classList.add(CHECKED_CLASS)
             if (total === 1) square.classList.add(ONE_CLASS)

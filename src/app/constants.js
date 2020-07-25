@@ -21,3 +21,7 @@ export const DIV_ELEMENT = 'div'
 export const ID_ATTRIBUTE = 'id'
 export const DATA_ATTRIBUTE = 'data'
 export const CLICK_EVENT = 'click'
+
+
+//Common constants
+export const EMPTY_STRING = ''
